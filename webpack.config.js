@@ -22,6 +22,18 @@ var config = {
         query : {
           presets : ['react','es2015','stage-2']
         }
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader','css-loader', {
+        loader: 'postcss-loader',
+        options: {
+           plugins: () => [require('autoprefixer')]
+         }}]
       }
     ]
   }
